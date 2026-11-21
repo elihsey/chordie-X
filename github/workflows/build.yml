@@ -21,6 +21,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Unzip src
+        if: hashFiles('src.zip') != ''
+        run: unzip src.zip
+
       - name: Build Frontend (Vite)
         run: npm run build
 
